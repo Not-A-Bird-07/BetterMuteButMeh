@@ -7,8 +7,14 @@ namespace BetterMuteButMeh.Hooks
     {
         public static void Hook()
         {
-            On.VRRigSerializer.PlayHandTapShared += PlayHandTapSharedHook;
+            VRRigSerializer.PlayHandTapShared += PlayHandTapSharedHook;
             VRRigSerializer.OnHandTapRPCShared += OnHandTapRPCSharedHook;
+        }
+
+        public static void UnHook()
+        {
+            VRRigSerializer.PlayHandTapShared -= PlayHandTapSharedHook;
+            VRRigSerializer.OnHandTapRPCShared -= OnHandTapRPCSharedHook;
         }
 
         private static void OnHandTapRPCSharedHook(VRRigSerializer.orig_OnHandTapRPCShared orig, NetworkBehaviour self, 

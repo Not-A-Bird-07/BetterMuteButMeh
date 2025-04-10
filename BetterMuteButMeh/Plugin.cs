@@ -13,6 +13,12 @@ namespace BetterMuteButMeh
             VRRigHooks.Hook();
             VRRigSerializerHooks.Hook();
         }
+
+        ~Plugin()
+        {
+            VRRigHooks.UnHook();
+            VRRigSerializerHooks.UnHook();
+        }
         
         public void Awake() => Instance = this;
 
